@@ -1,7 +1,7 @@
 # Multi Sensor Package
  This package allows monitoring the performance of the sensors depicted in the Figure 1 (Multi sensor system) of individual manner and visualized in RVIZ. 
  
-![multi-sensor system](https://github.com/user-attachments/assets/099efe78-38a7-42b2-87e6-1d05bfb00977){ width="800" height="600" }
+![multi-sensor system](https://github.com/user-attachments/assets/099efe78-38a7-42b2-87e6-1d05bfb00977)
                                            Figure 1. Multi sensor system
 
  ## Pre-Requisites
