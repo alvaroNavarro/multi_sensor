@@ -43,5 +43,9 @@
 
      This file check the permission for Xsense device. Once the node is closed, a question to save the gps and imu data will be arise.
 
- console.log('Code Tab A');   
+```
+function test() {
+  console.log("This code will have a copy button to the right of it");
+}
+``` 
  
