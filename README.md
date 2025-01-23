@@ -6,17 +6,17 @@
 
  ## Pre-Requisites
  - Ensure to have installled the drivers for the camera (In our case we are using ZED2 camera from StereoLabs).
-   Please check the github repo:
-   https://github.com/stereolabs/zed-multi-camera.git
+   Please check the github repo:  
+   https://github.com/stereolabs/zed-multi-camera.git  
    Remark: Check the serial number of each camera
 
  - Ensure to have installed the drivers for the Ouster LiDAR sensor.
-   Please check the github repo:
+   Please check the github repo:  
    https://github.com/ouster-lidar/ouster-ros.git
 
- - Ensure to have installed the drivers for the XSense IMU.
-   Please check the github repo:
-   https://github.com/DEMCON/ros2_xsens_mti_driver.git
+ - Ensure to have installed the drivers for the XSense IMU.  
+   Please check the github repo:  
+   https://github.com/DEMCON/ros2_xsens_mti_driver.git  
    Remark: This packet is compiled to ROS Foxy distribution. We have tested it in ROS Humble and only can get the heading information
 
  - Add the package gps_imu that is found in the following repository:
@@ -39,11 +39,13 @@
    ```
    
 5. IMU package
+   Do not forget to remove the USB permission 
    ```
-   ros2 launch multi-sensor only_imu.launch.py   Do not forget to remove the USB permission  sudo chmod 777 /dev/ttyUSB0
-   ```
+   sudo chmod 777 /dev/ttyUSB0
+   ros2 launch multi-sensor only_imu.launch.py   
+   ``` 
   
-7. All sensors
+6. All sensors
    To run all sensors, this packet contains a bash file located in the script folder. To use it do the following:
    ``` 
    cd ~/ros2_ws/src/multi_sensor/scripts
