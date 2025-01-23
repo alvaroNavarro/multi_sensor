@@ -22,19 +22,21 @@
     
  ## Usage
  1. ZED package:
-    - ros2 launch multi-sensor only_camera.launch.py camera:=<Number_of_camera>
+    ```
+    ros2 launch multi-sensor only_camera.launch.py camera:=<Number_of_camera>
+    ```
       where Number of camera is:
            1. Front camera
            2. Front camera and left camera
            3. All cameras
 
-2. Ouster package:
+3. Ouster package:
    - ros2 launch multi-sensor only_lidar.launch.py
   
-3. IMU package
+4. IMU package
    - ros2 launch multi-sensor only_imu.launch.py   Do not forget to remove the USB permission  sudo chmod 777 /dev/ttyUSB0
   
-4. All sensors
+5. All sensors
    To run all sensors, this packet contains a bash file located in the script folder. To use it do the following:
    
    - cd ~/ros2_ws/src/multi_sensor/scripts
