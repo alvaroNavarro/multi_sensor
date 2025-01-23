@@ -1,7 +1,8 @@
 # Multi Sensor Package
  This package allows monitoring the performance of the sensors depicted in the Figure 1 (Multi sensor system) of individual manner and visualized in RVIZ. 
+ 
 ![multi-sensor system](https://github.com/user-attachments/assets/099efe78-38a7-42b2-87e6-1d05bfb00977)
-Figure 1. Multi sensor system
+                                           Figure 1. Multi sensor system
 
  ## Pre-Requisites
  - Ensure to have installled the drivers for the camera (In our case we are using ZED2 camera from StereoLabs).
