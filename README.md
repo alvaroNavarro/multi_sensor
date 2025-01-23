@@ -42,5 +42,6 @@
    - ./all_sensors.bash
 
      This file check the permission for Xsense device. Once the node is closed, a question to save the gps and imu data will be arise.
-    
+
+ console.log('Code Tab A');   
  
