@@ -54,4 +54,8 @@
    ```
 
    This file check the permission for Xsense device. Once the node is closed, a question to save the gps and imu data will be done.
+   The topics can be saved into ROSBag file
+   ```
+   ./rosbag_record.bash
+   ```
  
