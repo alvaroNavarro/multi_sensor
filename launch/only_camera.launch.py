@@ -18,52 +18,38 @@ from ament_index_python.packages import get_package_share_directory
 def launch_setup(context, *args, **kwargs):
     
     camera = LaunchConfiguration('camera')
-    num_cams = int(camera.perform(context))
+    camera_type = str(camera.perform(context))
     
-    if num_cams > 3:
-        return [
-            LogInfo(msg=TextSubstitution(
-                text='The number of cameras chosen is incorrect.'))
-        ]
+    actions=[]
+    
+    params = os.path.join(
+    	get_package_share_directory('multi_sensor'),
+    	'config',
+    	'params.yaml'
+    )
         
-    if num_cams == 1:
-        default_value_names   = '[zed_front]'
-        default_value_models  = '[zed2]'
-        default_value_serials = '[24605482]'
-        
-    elif num_cams == 2:    
-        default_value_names   = '[zed_front, zed_left]'
-        default_value_models  = '[zed2, zed2]'
-        default_value_serials = '[24605482, 24749858]'
-        
-    elif num_cams == 3:    
-        default_value_names   = '[zed_front, zed_left, zed_right]'
-        default_value_models  = '[zed2, zed2, zed2]'
-        default_value_serials = '[24605482, 24749858, 28465220]'              
-    
-    cam_names   = DeclareLaunchArgument('cam_names',   default_value=default_value_names)
-    cam_models  = DeclareLaunchArgument('cam_models',  default_value=default_value_models)    
-    cam_serials = DeclareLaunchArgument('cam_serials', default_value=default_value_serials)
-    
-    actions = [cam_names, cam_models, cam_serials]  
-    
+    zed_parameters = [
+       params,
+       {
+           'camera': camera_type
+       }
+    ]
+
     # Zed node
-    cameras_launch = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([
-            FindPackageShare("zed_multi_camera"),'/launch','/zed_multi_camera.launch.py']),
-        launch_arguments=[
-            ('cam_names',   LaunchConfiguration('cam_names')),
-            ('cam_models',  LaunchConfiguration('cam_models')),
-            ('cam_serials', LaunchConfiguration('cam_serials'))
-        ]                
+    cameras_launch = Node(
+        package='multi_sensor',
+        executable='zed_camera_tf',
+        name='Zed_node',
+        output='screen',
+        parameters=zed_parameters
     )
     
     # Rviz2 Configurations to be loaded by ZED Node
-    if num_cams == 1:
+    if camera_type == "center":
         rviz_config = 'rviz_visualization_cameras_1'
-    elif num_cams == 2:    
+    elif camera_type == "left":    
         rviz_config = 'rviz_visualization_cameras_2'
-    elif num_cams == 3:
+    elif camera_type == "right":
         rviz_config = 'rviz_visualization_cameras_all'    
         
     config_rviz2 = os.path.join(

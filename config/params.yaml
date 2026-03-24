@@ -1,0 +1,17 @@
+# Topics
+/**:
+  ros__parameters:
+    center_camera:
+      camera_name: "ZED2"
+      camera_label: "1"
+      serial_number: 25791934
+      
+    left_camera:
+      camera_name: "ZED2"
+      camera_label: "2"
+      serial_number: 24749858 
+      
+    right_camera:
+      camera_name: "ZED2"
+      camera_label: "3"
+      serial_number: 28465220  
